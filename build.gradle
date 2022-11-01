@@ -33,15 +33,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	
-	/* MySQL 설정 */
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
-	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
-	
 	/* SQL result Map -> CamelCase 설정 */
 	implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
-	
-	/* log4jdbc 설정 */
-	implementation group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
 	
 	/* Gson 설정 */
 	implementation 'com.google.code.gson:gson:2.9.0'
