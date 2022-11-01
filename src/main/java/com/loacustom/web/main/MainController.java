@@ -1,20 +1,31 @@
 package com.loacustom.web.main;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-@RestController
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
 public class MainController {
+	
+	//log 선언
+	public final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@GetMapping("/main")
-	public String main() { 
-		System.out.println("컨트롤러 확인");
-		return "10월 27일 프로젝트 생성";
-	}
-	
-	@GetMapping("/bbs")
-	public String bbs() { 
-		System.out.println("게시판 잘 탔음");
-		return "여기는 게시판";
+	public String main(Model model) {
+		
+		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: Start ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+		Date date = new Date(System.currentTimeMillis());
+		System.out.println(formatter.format(date) + " >>> 메인페이지 연결확인");
+		
+		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: End ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		return "content/main";
 	}
 }
