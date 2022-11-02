@@ -1,13 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/layouts/default_layout}">
+<!-- 필요 시 레이아웃 생성 후 교체 -->
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-	body {margin:100px;}
-</style>
+<title>메인페이지</title>
 </head>
-<body>
-	<h1>메인페이지 연결확인</h1>
-</body>
+
+<th:block layout:fragment="content">
+	<div class="container">
+		<div class="card" style="width:20%;">
+			<img src="https://img.lostark.co.kr/profile/7/3B34FDF637370DC7F75EC088318EBC557B08F3776E51D01B4B64EB3A6B62E8E6.PNG" class="card-img-top" alt="조효경">
+			<div class="card-body">
+				<h5 class="card-title">조효경</h5>
+				<p class="card-text">에스더의 기운 "줘"</p>
+				<a href="javascript:goEat();" class="btn btn-primary">먹으러 가자</a>
+			</div>
+		</div>
+		<div class="card" style="width:20%;">
+			<img src="https://img.lostark.co.kr/profile/4/1CA204A0A55F02DDF4CE49696E5B60FFA241C9DE843468EF39437950C5F91EB4.PNG" class="card-img-top" alt="빠락빡빡">
+			<div class="card-body">
+				<h5 class="card-title">빠락빡빡</h5>
+				<p class="card-text">나도 "줘"</p>
+				<a href="javascript:goEat();" class="btn btn-primary">먹으러 가자</a>
+			</div>
+		</div>
+	</div>
+</th:block>
+
+<th:block layout:fragment="script">
+	<script>
+		$(function() {
+			/* 개별 페이지 script 입력 */
+			
+		})
+		
+		function goEat() {
+			alert("그런 건 없습니다.");
+		}
+	</script>
+</th:block>
+
 </html>
