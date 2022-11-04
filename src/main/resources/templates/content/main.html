@@ -34,11 +34,22 @@
 	<script>
 		$(function() {
 			/* 개별 페이지 script 입력 */
-			
+			console.log("[[${list}]]");
+			ajaxTest();
 		})
 		
 		function goEat() {
 			alert("그런 건 없습니다.");
+		}
+		
+		function ajaxTest() {
+			$.ajax({
+				url: "/ajaxTest",
+				method: "GET",
+				success: function(data) {
+					console.log("data >>> ", data);
+				}
+			})
 		}
 	</script>
 </th:block>
