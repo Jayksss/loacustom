@@ -25,6 +25,16 @@ public class MainController {
 	
 	@Autowired
 	private MainService mainService;
+	
+	@GetMapping("/index")
+	public String index() {
+		
+		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: Start ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: End ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		return "content/index";
+	}
 
 	@GetMapping("/main")
 	public String main(Model model) {
