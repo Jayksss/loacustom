@@ -27,9 +27,11 @@ public class MainController {
 	private MainService mainService;
 	
 	@GetMapping("/index")
-	public String index() {
+	public String index(Model model) {
 		
 		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: Start ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		model.addAttribute("list", mainService.selectMainInfo());
 		
 		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: End ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
 		
