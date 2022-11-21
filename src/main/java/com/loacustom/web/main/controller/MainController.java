@@ -26,14 +26,20 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 	
+	@GetMapping("/DB-CONNECT-TEST")
+	@ResponseBody
+	public List<Map<String, Object>> dbConnectTest(Model model) {
+		return mainService.selectMainInfo();
+	}
+	
 	@GetMapping("/index")
 	public String index(Model model) {
 		
-		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: Start ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		logger.info("MethodName ::: {} ::: Start", Thread.currentThread().getStackTrace()[1].getMethodName());
 		
 		model.addAttribute("list", mainService.selectMainInfo());
 		
-		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: End ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		logger.info("MethodName ::: {} ::: End", Thread.currentThread().getStackTrace()[1].getMethodName());
 		
 		return "content/index";
 	}
@@ -41,7 +47,7 @@ public class MainController {
 	@GetMapping("/main")
 	public String main(Model model) {
 		
-		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: Start ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		logger.info("MethodName ::: {} ::: Start", Thread.currentThread().getStackTrace()[1].getMethodName());
 		
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 		Date date = new Date(System.currentTimeMillis());
@@ -53,14 +59,8 @@ public class MainController {
 		
 		model.addAttribute("list", list);
 		
-		logger.info("■□■□■□■□■□■□■□ MethodName ::: {} ::: End ■□■□■□■□■□■□■□", Thread.currentThread().getStackTrace()[1].getMethodName());
+		logger.info("MethodName ::: {} ::: End", Thread.currentThread().getStackTrace()[1].getMethodName());
 		
 		return "content/main";
-	}
-	
-	@GetMapping("/ajaxTest")
-	@ResponseBody
-	public List<Map<String, Object>> ajaxTest(Model model) {
-		return mainService.selectMainInfo();
 	}
 }
