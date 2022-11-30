@@ -220,7 +220,7 @@
 			console.log("[[${list}]]");
 			
 			$.ajax({
-				url: "/DB-CONNECT-TEST",
+				url: "/api/DB-CONNECT-TEST",
 				method: "GET",
 				success: function(data) {
 					$("#ajaxTest").text(JSON.stringify(data));
