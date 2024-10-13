@@ -5,9 +5,11 @@
 	<!-- 테스트 쿼리 -->
 	<select id="selectMainInfo" resultType="Map">
 		/* MainMapper.selectMainInfo */
-		SELECT *
-		FROM sakila.actor
-		LIMIT 10
+		SELECT
+			LOGIN_ID
+			 , PWD_HASH
+			 , USER_NM
+		FROM spring_dev.USERS
 	</select>
 	
 </mapper>
